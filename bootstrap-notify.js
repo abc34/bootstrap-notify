@@ -264,6 +264,11 @@
 					css.right = 0;
 					break;
 			}
+
+		  css.left = this.settings.padding.left || css.left;
+		  css.right = this.settings.padding.right|| css.right;
+
+
 			this.$ele.css(css).addClass(this.settings.animate.enter);
 			$.each(Array('webkit-', 'moz-', 'o-', 'ms-', ''), function (index, prefix) {
 				self.$ele[0].style[prefix + 'AnimationIterationCount'] = 1;
