@@ -213,6 +213,10 @@
 					this.$ele.find('[data-notify="icon"]').append('<img src="' + this.settings.content.icon + '" alt="Notify Icon" />');
 				}
 			}
+
+			if (this.settings.custom_action_icon){
+				this.$ele.find('[data-notify="action_icon"]').addClass(this.settings.custom_action_icon);
+			} 
 		},
 		styleDismiss: function () {
 			this.$ele.find('[data-notify="dismiss"]').css({
@@ -304,6 +308,12 @@
 		},
 		bind: function () {
 			var self = this;
+
+			if ($.isFunction(self.settings.custom_action_onClick)) {
+        this.$ele.find('[data-notify="action"]').on('click', function () {
+          self.settings.custom_action_onClick.call(this, event);
+        });
+			});
 
 			this.$ele.find('[data-notify="dismiss"]').on('click', function () {
 				self.close();
