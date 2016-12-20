@@ -215,7 +215,7 @@
 			}
 
 			if (this.settings.custom_action_icon){
-				this.$ele.find('[data-notify="action_icon"]').addClass(this.settings.custom_action_icon);
+				this.$ele.find('[data-notify="action-icon"]').addClass(this.settings.custom_action_icon);
 			} 
 		},
 		styleDismiss: function () {
@@ -241,7 +241,8 @@
 			var self = this,
 				offsetAmt = this.settings.offset.y,
 				css = {
-					display: 'inline-block',
+					display: 'flex',
+          align-items: 'center',
 					margin: '0px auto',
 					position: this.settings.position ? this.settings.position : (this.settings.element === 'body' ? 'fixed' : 'absolute'),
 					transition: 'all .5s ease-in-out',
