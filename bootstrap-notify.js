@@ -220,9 +220,7 @@
 		},
 		styleDismiss: function () {
 			this.$ele.find('[data-notify="dismiss"]').css({
-				position: 'absolute',
-				right: '10px',
-				top: '5px',
+				position: 'relative',
 				zIndex: this.settings.z_index + 2
 			});
 		},
@@ -241,8 +239,6 @@
 			var self = this,
 				offsetAmt = this.settings.offset.y,
 				css = {
-					display: 'flex',
-          align-items: 'center',
 					margin: '0px auto',
 					position: this.settings.position ? this.settings.position : (this.settings.element === 'body' ? 'fixed' : 'absolute'),
 					transition: 'all .5s ease-in-out',
@@ -314,7 +310,7 @@
         this.$ele.find('[data-notify="action"]').on('click', function () {
           self.settings.custom_action_onClick.call(this, event);
         });
-			});
+			}
 
 			this.$ele.find('[data-notify="dismiss"]').on('click', function () {
 				self.close();
